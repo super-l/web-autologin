@@ -72,3 +72,11 @@ go env -w GOARCH=amd64
 go build -ldflags "-w -s" svjia-cookie
 ```
 
+### windows下编译windows版本方案
+
+```
+go env -w CGO_ENABLED=0
+go env -w GOOS=windows
+go env -w GOARCH=amd64
+go build -ldflags "-w -s" svjia-cookie
+```

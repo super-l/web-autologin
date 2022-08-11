@@ -20,6 +20,7 @@ var caps selenium.Capabilities
 var homePage = "https://passport.3vjia.com/login"
 
 func buildOption() []chromedp.ExecAllocatorOption {
+	agent := "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"
 	options := []chromedp.ExecAllocatorOption{
 		chromedp.NoFirstRun,            // 第一次不运行
 		chromedp.NoDefaultBrowserCheck, // 不检查默认浏览器
@@ -52,6 +53,7 @@ func buildOption() []chromedp.ExecAllocatorOption {
 
 		chromedp.Flag("disable-infobars", true),
 		chromedp.Flag("disable-gpu", true), // 关闭gpu,服务器一般没有显卡
+		chromedp.UserAgent(agent),
 		//chromedp.NoSandbox,             // 不开启沙盒模式可以减少对服务器的资源消耗,但是服务器安全性降低,配和参数
 	}
 
