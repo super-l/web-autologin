@@ -62,7 +62,13 @@ mysql_database： mysql数据库名称
 
 ```
 
-### 跨平台编译方案
+### windows下跨平台编译linux版本方案
 
+```
+go env -w CGO_ENABLED=0
+go env -w GOOS=linux
+go env -w GOARCH=amd64
 
+go build -ldflags "-w -s" svjia-cookie
+```
 
